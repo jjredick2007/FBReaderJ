@@ -142,11 +142,11 @@ public abstract class FBTree extends ZLTree<FBTree> implements Comparable<FBTree
 			if (c0 == c1) {
 			  	continue;
 			}
-			c0 = Character.toLowerCase(c0);
+			/*c0 = Character.toLowerCase(c0);
 			c1 = Character.toLowerCase(c1);
 			if (c0 == c1) {
 			  	continue;
-			}
+			}*/
 			return c0 - c1;
 		}
 		if (s0.length() > len) {
@@ -167,7 +167,7 @@ public abstract class FBTree extends ZLTree<FBTree> implements Comparable<FBTree
 		if (key1 == null) {
 			return 1;
 		}
-		return compareStringsIgnoreCase(key0, key1);
+		return compareStringsIgnoreCase(MyNormalizer.normalize(key0), MyNormalizer.normalize(key1));
 	}
 
 	public abstract String getSummary();
